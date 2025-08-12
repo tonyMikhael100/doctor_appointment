@@ -13,9 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter advanced test ',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
+      title: 'Flutter  course',
       home: Scaffold(),
     );
   }
