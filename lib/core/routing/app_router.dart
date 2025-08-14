@@ -1,6 +1,6 @@
 import 'package:doctor_appointment/core/routing/routers.dart';
 import 'package:doctor_appointment/features/login/presentation/login_screen.dart';
-import 'package:doctor_appointment/features/onboarding/presentation/on_borading_screen.dart';
+import 'package:doctor_appointment/features/onboarding/presentation/views/on_borading_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
