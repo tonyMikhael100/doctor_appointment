@@ -2,24 +2,22 @@ import 'package:flutter/material.dart';
 
 extension NavigationExtension on BuildContext {
   /// Push a new page
-  Future<T?> push<T>(Widget page) {
-    return Navigator.of(this).push(
-      MaterialPageRoute(builder: (_) => page),
-    );
+  Future<T?> pushNamed<T>(String page) {
+    return Navigator.of(this).pushNamed(page);
   }
 
   /// Replace with a new page
-  Future<T?> pushReplacement<T, TO>(Widget page, {TO? result}) {
-    return Navigator.of(this).pushReplacement(
-      MaterialPageRoute(builder: (_) => page),
+  Future<T?> pushReplacementNamed<T, TO>(String page, {TO? result}) {
+    return Navigator.of(this).pushReplacementNamed(
+      page,
       result: result,
     );
   }
 
   /// Push and remove all previous routes
-  Future<T?> pushAndRemoveAll<T>(Widget page) {
-    return Navigator.of(this).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (_) => page),
+  Future<T?> pushAndRemoveAllNamed<T>(String page) {
+    return Navigator.of(this).pushNamedAndRemoveUntil(
+      page,
       (route) => false,
     );
   }
