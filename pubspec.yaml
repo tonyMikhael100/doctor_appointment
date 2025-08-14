@@ -28,43 +28,24 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-# -------------------
-  # UI & Icons
-  # -------------------
-  cupertino_icons: ^1.0.8 # iOS-style icon pack
-
-  # -------------------
-  # Networking & API Calls
-  # -------------------
-  dio: ^5.9.0 # Powerful HTTP client for Dart/Flutter
-  retrofit: ^4.7.1 # Type-safe HTTP client built on Dio
-  retrofit_generator: ^10.0.2 # Code generator for Retrofit
-  pretty_dio_logger: ^1.4.0 # Logs HTTP requests/responses for debugging
-
-  # -------------------
-  # State Management & Dependency Injection
-  # -------------------
-  flutter_bloc: ^9.1.1 # BLoC pattern for state management
-  get_it: ^8.2.0 # Service locator for dependency injection
-
-  # -------------------
-  # Localization & Internationalization
-  # -------------------
-  easy_localization: ^3.0.8 # Easy language switching & translations
-  intl: ^0.20.2 # Date/number formatting & i18n utilities
-
-  # -------------------
-  # Data Modeling & Serialization
-  # -------------------
-  freezed: ^3.2.0 # Code generation for immutable classes & union types
-  freezed_annotation: ^3.1.0 # Annotations for Freezed
-  json_annotation: ^4.9.0 # Annotations for JSON serialization
-  json_serializable: ^6.10.0 # Generates JSON serialization code
-
-  # -------------------
-  # Splash Screen
-  # -------------------
-  flutter_native_splash: ^2.4.6 # Generates native splash screens
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  dio: ^5.9.0
+  easy_localization: ^3.0.8
+  flutter_bloc: ^9.1.1
+  flutter_native_splash: ^2.4.6
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.2.0
+  freezed: ^3.2.0
+  freezed_annotation: ^3.1.0
+  get_it: ^8.2.0
+  intl: ^0.20.2
+  json_annotation: ^4.9.0
+  json_serializable: ^6.10.0
+  pretty_dio_logger: ^1.4.0
+  retrofit: ^4.7.1
+  retrofit_generator: ^10.0.2
 
 dev_dependencies:
   flutter_lints: ^5.0.0
