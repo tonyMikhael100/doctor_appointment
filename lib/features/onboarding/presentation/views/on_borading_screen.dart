@@ -1,12 +1,9 @@
-import 'package:doctor_appointment/core/helpers/extensions.dart';
-import 'package:doctor_appointment/core/theming/app_colors.dart';
 import 'package:doctor_appointment/core/theming/app_text_sytles.dart';
 import 'package:doctor_appointment/features/onboarding/presentation/widgets/best_doctor_image_and_text.dart';
 import 'package:doctor_appointment/features/onboarding/presentation/widgets/doc_doc_logo.dart';
 import 'package:doctor_appointment/features/onboarding/presentation/widgets/get_started_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class OnBoradingScreen extends StatelessWidget {
   const OnBoradingScreen({super.key});
