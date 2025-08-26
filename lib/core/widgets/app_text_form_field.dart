@@ -13,6 +13,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.backgroundColor,
     this.isObsercureText,
+    required this.validator,
   });
 
   final TextEditingController controller;
@@ -23,6 +24,7 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final Color? backgroundColor;
   final bool? isObsercureText;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -40,19 +42,28 @@ class AppTextFormField extends StatelessWidget {
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(color: AppColors.lightGray, width: 1.3),
+              borderSide: BorderSide(color: AppColors.lightGray, width: 1.5),
             ),
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(color: AppColors.mainBlue, width: 1.3),
+              borderSide: BorderSide(color: AppColors.mainBlue, width: 1.5),
             ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.redAccent, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.redAccent, width: 1.5),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
         ),
         fillColor: backgroundColor ?? AppColors.lightGray,
         filled: true,
       ),
+      validator: validator,
     );
   }
 }
