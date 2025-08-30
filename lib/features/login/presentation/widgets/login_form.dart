@@ -17,21 +17,6 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   @override
-  void initState() {
-    context.read<LoginCubit>().passwordController.addListener(() {
-      setState(() {});
-    });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    context.read<LoginCubit>().emailController.dispose();
-    context.read<LoginCubit>().passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Form(
       key: context.read<LoginCubit>().formKey,
@@ -91,19 +76,6 @@ class _LoginFormState extends State<LoginForm> {
                 style: AppTextSytles.font12Blue400Weight,
               ),
             ),
-          ),
-          verticalSpace(16),
-          PasswordValidation(
-            hasLowerCase: AppRegex.hasLowerCase(
-                context.read<LoginCubit>().passwordController.text),
-            hasUpperCase: AppRegex.hasUpperCase(
-                context.read<LoginCubit>().passwordController.text),
-            hasDigit: AppRegex.hasDigit(
-                context.read<LoginCubit>().passwordController.text),
-            hasSpecialCharacter: AppRegex.hasSpecialCharacter(
-                context.read<LoginCubit>().passwordController.text),
-            hasMinLength: AppRegex.hasMinLength(
-                context.read<LoginCubit>().passwordController.text),
           ),
         ],
       ),

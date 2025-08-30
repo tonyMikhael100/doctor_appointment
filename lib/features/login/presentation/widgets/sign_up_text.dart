@@ -1,3 +1,5 @@
+import 'package:doctor_appointment/core/helpers/extensions.dart';
+import 'package:doctor_appointment/core/routing/routers.dart';
 import 'package:doctor_appointment/core/theming/app_text_sytles.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +18,9 @@ class SignUpText extends StatelessWidget {
           style: AppTextSytles.font14Grey400Weight,
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            context.pushNamed(Routers.signUpScreen);
+          },
           child: Text(
             'Sign Up',
             style: AppTextSytles.font12Blue400Weight,
