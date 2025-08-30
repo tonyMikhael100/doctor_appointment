@@ -88,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                       child: state is Loading
                           ? Lottie.asset(
                               'assets/animation/loading_lottie.json',
-                              height: 30.h,
+                              height: 25.h,
                               fit: BoxFit.cover,
                             )
                           : Text(
