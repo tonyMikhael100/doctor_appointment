@@ -1,19 +1,20 @@
 import 'package:doctor_appointment/core/helpers/custom_dialog.dart';
+import 'package:doctor_appointment/core/helpers/extensions.dart';
 import 'package:doctor_appointment/core/helpers/spacing_helper.dart';
 import 'package:doctor_appointment/core/theming/app_colors.dart';
 import 'package:doctor_appointment/core/theming/app_text_sytles.dart';
 import 'package:doctor_appointment/features/login/data/models/login_request_body.dart';
-import 'package:doctor_appointment/features/login/logic/cubit/login_cubit.dart';
-import 'package:doctor_appointment/features/login/presentation/widgets/login_form.dart';
-import 'package:doctor_appointment/features/login/presentation/widgets/sign_up_text.dart';
-import 'package:doctor_appointment/features/login/presentation/widgets/terms_and_condition_text.dart';
+import 'package:doctor_appointment/features/sign_up/data/models/sign_up_request_body.dart';
+import 'package:doctor_appointment/features/sign_up/logic/cubit/sign_up_cubit.dart';
+import 'package:doctor_appointment/features/sign_up/presentation/widgets/create_account_text.dart';
+import 'package:doctor_appointment/features/sign_up/presentation/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +26,11 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Welcome Back',
-                  style: AppTextSytles.font24BlueBold,
-                ),
-                verticalSpace(8),
-                Text(
-                  ' We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
-                  style: AppTextSytles.font14Grey400Weight,
-                ),
-                verticalSpace(36),
-                LoginForm(),
-                verticalSpace(16),
-                BlocConsumer<LoginCubit, LoginState>(
+                CreateAccountText(),
+                verticalSpace(17),
+                SignUpForm(),
+                verticalSpace(17),
+                BlocConsumer<SignUpCubit, SignUpState>(
                   listener: (context, state) {
                     state.whenOrNull(
                       error: (error) {
@@ -48,7 +41,9 @@ class LoginScreen extends StatelessWidget {
                           confirmText: 'OK',
                         );
                       },
-                      success: (data) {},
+                      success: (data) {
+                        context.pop();
+                      },
                     );
                   },
                   builder: (context, state) {
@@ -56,24 +51,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: state is Loading
                           ? null
                           : () {
-                              if (context
-                                  .read<LoginCubit>()
-                                  .formKey
-                                  .currentState!
-                                  .validate()) {
-                                context.read<LoginCubit>().emitLoginStates(
-                                      LoginRequestBody(
-                                        email: context
-                                            .read<LoginCubit>()
-                                            .emailController
-                                            .text,
-                                        password: context
-                                            .read<LoginCubit>()
-                                            .passwordController
-                                            .text,
-                                      ),
-                                    );
-                              }
+                              signUpMethod(context);
                             },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 14),
@@ -92,21 +70,38 @@ class LoginScreen extends StatelessWidget {
                               fit: BoxFit.cover,
                             )
                           : Text(
-                              'Login',
+                              'Sign Up',
                               style: AppTextSytles.font16WhiteSemiBold,
                             ),
                     );
                   },
                 ),
-                verticalSpace(32),
-                TermsAndConditionText(),
-                verticalSpace(32),
-                SignUpText(),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void signUpMethod(BuildContext context) {
+    if (context.read<SignUpCubit>().formKey.currentState!.validate() &&
+        context.read<SignUpCubit>().passwordController.text ==
+            context.read<SignUpCubit>().passwordConfirmationController.text) {
+      context.read<SignUpCubit>().emitSignUpStates(
+            SignUpRequestBody(
+              name: context.read<SignUpCubit>().nameController.text,
+              email: context.read<SignUpCubit>().emailController.text,
+              phone: context.read<SignUpCubit>().phoneController.text,
+              gender: '0',
+              password: context.read<SignUpCubit>().passwordController.text,
+              passwordConfirmation: context
+                  .read<SignUpCubit>()
+                  .passwordConfirmationController
+                  .text,
+            ),
+          );
+      context.read<SignUpCubit>().clearSignupFields();
+    }
   }
 }
