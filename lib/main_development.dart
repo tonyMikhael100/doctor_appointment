@@ -11,6 +11,5 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   log('this development');
   setupGetIt();
-
   runApp(const DocApp());
 }
