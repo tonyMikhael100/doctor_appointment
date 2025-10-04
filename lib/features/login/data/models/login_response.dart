@@ -4,6 +4,7 @@ part 'login_response.g.dart';
 @JsonSerializable()
 class LoginResponse {
   String? message;
+  // josn key to map the user data from json response
   @JsonKey(name: 'data')
   UserData? userData;
   bool? status;

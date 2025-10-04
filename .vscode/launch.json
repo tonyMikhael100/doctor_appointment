@@ -9,7 +9,8 @@
       "args": [
         "--flavor",
         "development"
-      ]
+      ],
+      "cwd": "${workspaceFolder}"
     },
     {
       "name": "Flutter Production",
@@ -19,7 +20,14 @@
       "args": [
         "--flavor",
         "production"
-      ]
+      ],
+      "cwd": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Default Flutter Run",
+      "configurations": ["Flutter Development"]
     }
   ]
 }

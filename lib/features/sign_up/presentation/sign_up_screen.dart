@@ -3,7 +3,6 @@ import 'package:doctor_appointment/core/helpers/extensions.dart';
 import 'package:doctor_appointment/core/helpers/spacing_helper.dart';
 import 'package:doctor_appointment/core/theming/app_colors.dart';
 import 'package:doctor_appointment/core/theming/app_text_sytles.dart';
-import 'package:doctor_appointment/features/login/data/models/login_request_body.dart';
 import 'package:doctor_appointment/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:doctor_appointment/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:doctor_appointment/features/sign_up/presentation/widgets/create_account_text.dart';

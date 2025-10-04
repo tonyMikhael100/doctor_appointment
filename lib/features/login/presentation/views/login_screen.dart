@@ -1,9 +1,14 @@
+import 'dart:developer';
+
 import 'package:doctor_appointment/core/helpers/custom_dialog.dart';
+import 'package:doctor_appointment/core/helpers/extensions.dart';
 import 'package:doctor_appointment/core/helpers/spacing_helper.dart';
 import 'package:doctor_appointment/core/theming/app_colors.dart';
 import 'package:doctor_appointment/core/theming/app_text_sytles.dart';
 import 'package:doctor_appointment/features/login/data/models/login_request_body.dart';
 import 'package:doctor_appointment/features/login/logic/cubit/login_cubit.dart';
+import 'package:doctor_appointment/features/login/logic/cubit/login_cubit.dart'
+    as Loginstate;
 import 'package:doctor_appointment/features/login/presentation/widgets/login_form.dart';
 import 'package:doctor_appointment/features/login/presentation/widgets/sign_up_text.dart';
 import 'package:doctor_appointment/features/login/presentation/widgets/terms_and_condition_text.dart';
@@ -12,9 +17,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +58,10 @@ class LoginScreen extends StatelessWidget {
                           confirmText: 'OK',
                         );
                       },
-                      success: (data) {},
+                      success: (data) {
+                        log('Login Success');
+                        context.pushReplacementNamed('/homeScreen');
+                      },
                     );
                   },
                   builder: (context, state) {

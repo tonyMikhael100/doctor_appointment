@@ -1,6 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:doctor_appointment/core/failure/failure.dart';
 import 'package:doctor_appointment/core/networking/api_error_handler.dart';
 import 'package:doctor_appointment/core/networking/api_result.dart';
 import 'package:doctor_appointment/core/networking/api_service.dart';

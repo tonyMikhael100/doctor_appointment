@@ -19,6 +19,11 @@ class AppTextSytles {
     fontWeight: FontWeight.w400,
     color: AppColors.mainBlue,
   );
+  static TextStyle font12Grey500Weight = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.gray,
+  );
 
   static TextStyle font14Grey400Weight = TextStyle(
     fontSize: 14.sp,
@@ -30,6 +35,11 @@ class AppTextSytles {
     fontSize: 16.sp,
     fontWeight: FontWeight.w600,
     color: Colors.white,
+  );
+  static TextStyle font16Black700Weight = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w700,
+    color: Colors.black,
   );
   static TextStyle font24BlueBold = TextStyle(
     fontSize: 24.sp,
@@ -52,5 +62,15 @@ class AppTextSytles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
     color: Colors.black,
+  );
+  static TextStyle font18Black700Weight = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w700,
+    color: Colors.black,
+  );
+  static TextStyle font18White500Weight = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
   );
 }

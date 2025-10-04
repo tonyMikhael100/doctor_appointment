@@ -8,19 +8,14 @@ import 'package:doctor_appointment/features/sign_up/logic/cubit/sign_up_cubit.da
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
-
 Future<void> setupGetIt() async {
   //Dio $ Api servie
-
   getIt.registerLazySingleton<ApiService>(
       () => ApiService(DioFactory.getDio(), baseUrl: ApiConstants.apiBaseUrl));
-
   getIt.registerLazySingleton<LoginRepoImp>(
       () => LoginRepoImp(apiService: getIt()));
   getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
-
   //signup dependencies
-
   getIt.registerLazySingleton<SignUpRepoImp>(() => SignUpRepoImp(
         apiService: getIt(),
       ));
