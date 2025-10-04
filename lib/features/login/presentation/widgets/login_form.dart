@@ -4,7 +4,6 @@ import 'package:doctor_appointment/core/theming/app_colors.dart';
 import 'package:doctor_appointment/core/theming/app_text_sytles.dart';
 import 'package:doctor_appointment/core/widgets/app_text_form_field.dart';
 import 'package:doctor_appointment/features/login/logic/cubit/login_cubit.dart';
-import 'package:doctor_appointment/features/login/presentation/widgets/passowrd_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -28,6 +28,7 @@ class DioFactory {
     };
   }
 
+// for pretty dio logger
   static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(

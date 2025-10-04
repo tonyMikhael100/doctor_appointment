@@ -1,6 +1,5 @@
 import 'package:doctor_appointment/core/helpers/spacing_helper.dart';
 import 'package:doctor_appointment/core/theming/app_text_sytles.dart';
-import 'package:doctor_appointment/features/sign_up/presentation/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 
 class CreateAccountText extends StatelessWidget {
