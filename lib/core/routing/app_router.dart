@@ -4,6 +4,7 @@ import 'package:doctor_appointment/features/home/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/features/home/presentation/views/home_screen.dart';
 import 'package:doctor_appointment/features/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_appointment/features/login/presentation/views/login_screen.dart';
+import 'package:doctor_appointment/features/onboarding/presentation/views/on_borading_screen.dart';
 import 'package:doctor_appointment/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:doctor_appointment/features/sign_up/presentation/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +14,7 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routers.onBoardingScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => HomeCubit(getIt())..getDoctorSpecializations(),
-            child: HomeScreen(),
-          ),
-        );
+        return MaterialPageRoute(builder: (_) => OnBoradingScreen());
 
       case Routers.loginScreen:
         return MaterialPageRoute(

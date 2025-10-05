@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:doctor_appointment/core/helpers/shared_pref_helper.dart';
 import 'package:doctor_appointment/core/networking/api_result.dart';
 import 'package:doctor_appointment/features/login/data/models/login_request_body.dart';
 import 'package:doctor_appointment/features/login/data/repo/login_repo_imp.dart';
@@ -19,10 +20,18 @@ class LoginCubit extends Cubit<LoginState> {
   void emitLoginStates(LoginRequestBody loginRequestBody) async {
     emit(const LoginState.loading());
     final response = await loginRepoImp.login(loginRequestBody);
-    response.when(success: (loginResponse) {
-      emit(LoginState.success(loginResponse));
-    }, failure: (error) {
-      emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
-    });
+    response.when(
+      success: (loginResponse) {
+        saveUserToken(loginResponse.userData!.token ?? '');
+        emit(LoginState.success(loginResponse));
+      },
+      failure: (error) {
+        emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
+      },
+    );
+  }
+
+  void saveUserToken(String token) async {
+    await SharedPrefHelper.instance.setValue('userToken', token);
   }
 }
