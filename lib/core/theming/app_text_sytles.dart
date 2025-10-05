@@ -59,10 +59,11 @@ class AppTextSytles {
   );
 
   static TextStyle font11Black400Weight = TextStyle(
-    fontSize: 14.sp,
+    fontSize: 11.sp,
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
+  
   static TextStyle font18Black700Weight = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w700,

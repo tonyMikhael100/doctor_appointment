@@ -55,7 +55,7 @@ class HomeDoctorIntro extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: -29.h,
+            bottom: 10,
             right: 10,
             child: Image.asset(
               'assets/images/home_doctor.png',
