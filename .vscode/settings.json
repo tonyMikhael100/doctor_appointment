@@ -3,5 +3,14 @@
     "**/*.freezed.dart": true,
     "**/*.g.dart": true
   },
-  "java.configuration.updateBuildConfiguration": "interactive",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.parameterHints.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.wordBasedSuggestions": "matchingDocuments",
+  "editor.suggest.showKeywords": true
 }

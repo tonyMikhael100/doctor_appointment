@@ -1,5 +1,6 @@
 import 'package:doctor_appointment/core/di/dependency_injection.dart';
 import 'package:doctor_appointment/core/routing/routers.dart';
+import 'package:doctor_appointment/features/home/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/features/home/presentation/views/home_screen.dart';
 import 'package:doctor_appointment/features/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_appointment/features/login/presentation/views/login_screen.dart';
@@ -12,28 +13,41 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routers.onBoardingScreen:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getDoctorSpecializations(),
+            child: HomeScreen(),
+          ),
+        );
+
       case Routers.loginScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<LoginCubit>(),
-            child: LoginScreen(),
+            child: const LoginScreen(),
           ),
         );
+
       case Routers.signUpScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<SignUpCubit>(),
-            child: SignUpScreen(),
+            child: const SignUpScreen(),
           ),
         );
+
       case Routers.homeScreen:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getDoctorSpecializations(),
+            child: HomeScreen(),
+          ),
+        );
+
       default:
         return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(child: Text('Page not found')),
-          ),
+          builder: (_) =>
+              const Scaffold(body: Center(child: Text('Page not found'))),
         );
     }
   }
