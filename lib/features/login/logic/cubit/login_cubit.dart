@@ -33,5 +33,6 @@ class LoginCubit extends Cubit<LoginState> {
 
   void saveUserToken(String token) async {
     await SharedPrefHelper.instance.setValue('userToken', token);
+    debugPrint('User token saved: $token');
   }
 }

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:doctor_appointment/core/networking/api_result.dart';
+import 'package:doctor_appointment/core/networking/dio_factory.dart';
 import 'package:doctor_appointment/features/home/data/models/doctor_specillization_model.dart';
 import 'package:doctor_appointment/features/home/data/repo/home_repo_imp.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,6 +14,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> getDoctorSpecializations() async {
     emit(HomeState.loading());
+   await DioFactory.dioHeader(); // Ensure headers are set with the latest token
     final response = await homeRepoImp.getHomeDoctors();
     response.when(
       success: (doctorSpecializationModel) {

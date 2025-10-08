@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:doctor_appointment/core/helpers/shared_pref_helper.dart';
+import 'package:flutter/material.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -23,11 +25,12 @@ class DioFactory {
     }
   }
 
-  static void dioHeader() {
+  static dioHeader() async {
+    var token = await SharedPrefHelper.instance.getString('userToken');
+    debugPrint('Retrieved token: $token');
     dio?.options.headers = {
       'Accept': 'application/json',
-      'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzU5NjU3MDQyLCJleHAiOjE3NTk3NDM0NDIsIm5iZiI6MTc1OTY1NzA0MiwianRpIjoiaVFhQ2JJdVZLTkNkUUMxRiIsInN1YiI6IjU0MTYiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dkioyEI7n3omVuRpfLYw-tLbSO8gElLdUa3yQNoVIcQ',
+      'Authorization': 'Bearer $token',
     };
   }
 
