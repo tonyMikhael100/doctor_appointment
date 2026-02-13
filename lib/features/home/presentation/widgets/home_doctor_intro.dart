@@ -22,7 +22,7 @@ class HomeDoctorIntro extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.mainBlue,
               borderRadius: BorderRadius.circular(24),
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: AssetImage('assets/images/home_banner.png'),
                 fit: BoxFit.cover,
               ),
@@ -55,11 +55,9 @@ class HomeDoctorIntro extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 10,
-            right: 10,
-            child: Image.asset(
-              'assets/images/home_doctor.png',
-            ),
+            bottom: 10.h,
+            right: 10.w,
+            child: Image.asset('assets/images/home_doctor.png'),
           ),
         ],
       ),
